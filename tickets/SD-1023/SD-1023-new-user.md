@@ -5,9 +5,10 @@
 - [🖱️ GUI (Azure Portal)](#full-process---azure-portal-gui)
 - [💻 PowerShell (Step-by-Step)](#full-process---powershell-step-by-step)
 - [⚙️ Script Automation](#full-process---powershell-script-automation)
+- [📨 Welcome Email Template](#welcome-email-template)
 - [✅ Resolution](#resolution)
 
-
+---
 
 ## 📄 Request Summary
 HR submitted a request to onboard a new employee, **Emily Carter**, who is joining the **Marketing** department.
@@ -15,6 +16,7 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 ## 📝 Requested Actions
 - Create Microsoft Entra ID user account
 - Add user to "Marketing Team" security group
+- Send welcome email with login details
 
 ---
 
@@ -32,6 +34,10 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 ---
 
 ### 2. Create and Assign Group
+
+> ⚠️ _Note: In a real production environment, the "Marketing Team" group would typically already exist as part of a predefined structure. In this lab, the group is created for demonstration and educational purposes._
+
+
 - Go to **Microsoft Entra ID > Groups > + New Group**
 - Create a **Security group** named `Marketing Team`
 - Set membership type to **Assigned**
@@ -60,6 +66,9 @@ New-MgUser -BodyParameter @{
 ![Create User via PowerShell](./powershell/create-user-via-ps.png)
 
 ### 2. Create Group
+
+> ⚠️ _Note: In a real production environment, the "Marketing Team" group would typically already exist as part of a predefined structure. In this lab, the group is created for demonstration and educational purposes._
+
 ```powershell
 $groupParams = @{
     DisplayName     = "Marketing Team"
@@ -94,6 +103,7 @@ Once tested manually, the onboarding can be performed using automation scripts:
 
 ```powershell
 .\scripts\create-user.ps1
+.\scripts\create-group.ps1
 .\scripts\add-user-to-group.ps1
 ```
 
@@ -103,7 +113,29 @@ Each script is modular and reusable for future onboarding scenarios. This reflec
 
 ---
 
+## 📨 Welcome Email Template
+
+Although email delivery is not automated due to subscription limitations, the following template is used to send credentials to new employees manually from the admin mailbox:
+
+```
+Subject: Welcome to DomainJoined!
+
+Hello Emily,
+
+Your Microsoft 365 account has been created. Please find your login details below:
+
+Username: emily.carter@domainjoined.xyz
+Temporary password: P@ssw0rd123!
+
+Log in at https://portal.office.com and follow the prompt to change your password.
+
+Welcome aboard!
+- IT Support Team
+```
+
+---
+
 ## ✅ Resolution
-Emily Carter has been successfully onboarded with an active user account and added to the Marketing Team group.
+Emily Carter has been successfully onboarded with an active user account, assigned to the Marketing Team group, and sent initial credentials.
 
 🗂️ Ticket Closed.
