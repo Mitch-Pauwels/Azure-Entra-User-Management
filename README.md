@@ -37,7 +37,7 @@ This structure mirrors how IT documentation is handled in real environments and 
 
 ## 🎫 Ticket Scenarios
 
-### [SD-1023](./tickets/SD-1023-new-user.md) – New User Account Creation
+### [SD-1023](./SD-1023/SD-1023-new-user.md) – New User Account Creation
 
 This scenario simulates onboarding a new employee (Emily Carter) into the organization using Microsoft Entra ID. It includes user creation, group assignment, and automation.
 
