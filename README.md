@@ -11,9 +11,6 @@ This project simulates real-world tasks performed by a Service Desk Engineer in 
 
 ---
 
-
----
-
 ## 📦 What This Project Covers
 
 ✅ Microsoft Entra ID (Azure Active Directory)  
