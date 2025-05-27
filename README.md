@@ -24,37 +24,25 @@ This project simulates real-world tasks performed by a Service Desk Engineer in 
 ✅ Simulated service desk ticket workflows  
 ✅ Reusable scripting for onboarding scenarios
 
+## 📁 Project Structure
 
-## 📂 Folder Structure
+This lab is organized by real-world service desk tickets (e.g., `SD-1023`), each with its own folder containing:
 
-```
-azure-entra-user-management/
-├── scripts/
-├── screenshots/
-├── tickets/
-├── README.md
-└── LICENSE
-```
+- 🖱️ `gui/` — step-by-step Azure Portal screenshots  
+- ⚙️ `powershell/` — PowerShell terminal screenshots  
+- 📜 `scripts/` — automation scripts for repeatable tasks  
+- 📝 `tickets/` — Markdown walkthroughs simulating real support tickets
+
+This structure mirrors how IT documentation is handled in real environments and keeps everything modular and easy to follow.
+
 
 ---
 
 ## 🎫 Ticket Scenarios
 
-### SD-1023 – New User Account Creation
+### [SD-1023](./tickets/SD-1023-new-user.md) – New User Account Creation
 
 This scenario simulates onboarding a new employee (Emily Carter) into the organization using Microsoft Entra ID. It includes user creation, group assignment, and automation.
-
----
-
-## 🔧 Tasks Performed (Ticket SD-1023)
-
-| Task | Tool | Screenshot |
-|------|------|------------|
-| Create user account | Azure Portal | `create-user-portal.png`, `emily-carter-created.png` |
-| Create "Marketing Team" group | Azure Portal | `create-group-portal.png` |
-| Add user to group | GUI + PowerShell | `add-user-to-group-portal.png`, `add-user-to-group-powershell.png` |
-
-📂 Screenshots available in the [`screenshots/`](./screenshots) folder.
 
 ---
 
@@ -69,14 +57,4 @@ This lab mirrors day-to-day responsibilities for a Service Desk Engineer or Clou
 
 ---
 
-## 🪪 Author
 
-**Mitch [Your Last Name]**  
-Cloud & Support Enthusiast | GCP ACE | Aspiring Azure Administrator  
-[GitHub Profile](https://github.com/YOUR_USERNAME) • [LinkedIn](https://linkedin.com/in/YOUR_PROFILE)
-
----
-
-## 📜 License
-
-MIT — feel free to use, share, and modify.

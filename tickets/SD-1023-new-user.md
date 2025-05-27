@@ -1,5 +1,13 @@
 # 🎫 Ticket SD-1023 – New User Account Creation
 
+## 📘 Table of Contents
+
+- [🖱️ GUI (Azure Portal)](#-full-process--azure-portal-gui)
+- [💻 PowerShell (Step-by-Step)](#-full-process--powershell-step-by-step)
+- [⚙️ Script Automation](#-full-process--powershell-script-automation)
+- [✅ Resolution](#-resolution)
+
+
 ## 📄 Request Summary
 HR submitted a request to onboard a new employee, **Emily Carter**, who is joining the **Marketing** department.
 
