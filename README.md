@@ -37,9 +37,13 @@ This structure mirrors how IT documentation is handled in real environments and 
 
 ## 🎫 Ticket Scenarios
 
-### [SD-1023](./SD-1023/SD-1023-new-user.md) – New User Account Creation
+### [SD-1023](./tickets/SD-1023/SD-1023-new-user.md) – New User Account Creation
 
 This scenario simulates onboarding a new employee (Emily Carter) into the organization using Microsoft Entra ID. It includes user creation, group assignment, and automation.
+
+### [SD-1024](./tickets/SD-1024/SD-1024-password-reset.md) – Password Reset for Locked-Out User
+
+Handles a password reset request for a locked-out user (**James Wallace**) using both the Azure Portal and PowerShell. Demonstrates account recovery and user support automation.
 
 ---
 
