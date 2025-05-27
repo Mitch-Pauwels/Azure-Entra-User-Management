@@ -47,15 +47,4 @@ Handles a password reset request for a locked-out user (**James Wallace**) using
 
 ---
 
-## 🧠 Why This Matters
-
-This lab mirrors day-to-day responsibilities for a Service Desk Engineer or Cloud Administrator supporting Microsoft Entra ID. It focuses on:
-
-- Identity provisioning and lifecycle management
-- Role-based group membership
-- Realistic helpdesk-style ticket resolution
-- Automation via PowerShell and Microsoft Graph
-
----
-
 
