@@ -2,10 +2,10 @@
 
 ## 📘 Table of Contents
 
-- [🖱️ GUI (Azure Portal)](#-full-process--azure-portal-gui)
-- [💻 PowerShell (Step-by-Step)](#-full-process--powershell-step-by-step)
-- [⚙️ Script Automation](#-full-process--powershell-script-automation)
-- [✅ Resolution](#-resolution)
+- [🖱️ GUI (Azure Portal)](#full-process--azure-portal-gui)
+- [💻 PowerShell (Step-by-Step)](#full-process--powershell-step-by-step)
+- [⚙️ Script Automation](#full-process--powershell-script-automation)
+- [✅ Resolution](#resolution)
 
 
 ## 📄 Request Summary
@@ -25,8 +25,8 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 - Leave account enabled and set "Force password change at next login"
 - Click **Create**
 
-![User creation in portal](../screenshots/SD-1023/gui/create-user-portal.png)
-![User profile confirmation](../screenshots/SD-1023/gui/emily-carter-created.png)
+![User creation in portal](./gui/create-user-portal.png)
+![User profile confirmation](./gui/emily-carter-created.png)
 
 ---
 
@@ -36,8 +36,8 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 - Set membership type to **Assigned**
 - Add Emily Carter as a member
 
-![Group creation in portal](../screenshots/SD-1023/gui/create-group-portal.png)
-![User added to group via portal](../screenshots/SD-1023/gui/add-user-to-group-portal.png)
+![Group creation in portal](./gui/create-group-portal.png)
+![User added to group via portal](./gui/add-user-to-group-portal.png)
 
 ---
 
@@ -56,7 +56,7 @@ New-MgUser -BodyParameter @{
   }
 }
 ```
-![Create User via PowerShell](../screenshots/SD-1023/powershell/create-user-via-ps.png)
+![Create User via PowerShell](./powershell/create-user-via-ps.png)
 
 ### 2. Create Group
 ```powershell
@@ -71,7 +71,7 @@ $groupParams = @{
 $group = New-MgGroup @groupParams
 ```
 
-![Group creation in PowerShell](../screenshots/SD-1023/powershell/create-security-group-ps.png)
+![Group creation in PowerShell](./powershell/create-security-group-ps.png)
 
 ### 3. Add to Group
 ```powershell
@@ -83,7 +83,7 @@ New-MgGroupMemberByRef -GroupId $group.Id -BodyParameter @{
 }
 ```
 
-![User added to group via PowerShell](../screenshots/SD-1023/powershell/add-user-to-group-ps.png)
+![User added to group via PowerShell](./powershell/add-user-to-group-ps.png)
 
 ---
 
