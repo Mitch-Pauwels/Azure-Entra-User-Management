@@ -2,10 +2,11 @@
 
 ## 📘 Table of Contents
 
-- [🖱️ GUI (Azure Portal)](#full-process--azure-portal-gui)
-- [💻 PowerShell (Step-by-Step)](#full-process--powershell-step-by-step)
-- [⚙️ Script Automation](#full-process--powershell-script-automation)
+- [🖱️ GUI (Azure Portal)](#full-process---azure-portal-gui)
+- [💻 PowerShell (Step-by-Step)](#full-process---powershell-step-by-step)
+- [⚙️ Script Automation](#full-process---powershell-script-automation)
 - [✅ Resolution](#resolution)
+
 
 
 ## 📄 Request Summary
@@ -17,7 +18,7 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 
 ---
 
-## 🖱️ Full Process – Azure Portal (GUI)
+## Full Process - Azure Portal (GUI)
 
 ### 1. Create User
 - Navigate to **Microsoft Entra ID > Users > + New User**
@@ -41,7 +42,7 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 
 ---
 
-## 💻 Full Process – PowerShell (Step-by-Step)
+## Full Process - PowerShell (Step-by-Step)
 
 ### 1. Create User (if applicable via script)
 ```powershell
@@ -87,7 +88,7 @@ New-MgGroupMemberByRef -GroupId $group.Id -BodyParameter @{
 
 ---
 
-## ⚙️ Full Process – PowerShell Script Automation
+## Full Process - PowerShell Script Automation
 
 Once tested manually, the onboarding can be performed using automation scripts:
 
