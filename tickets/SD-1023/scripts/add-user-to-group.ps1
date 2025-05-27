@@ -1,6 +1,11 @@
 # Add a user to a Microsoft Entra ID group using Microsoft Graph PowerShell SDK (v2+)
 
-# Prerequisite:
+# Safe module imports
+Import-Module Microsoft.Graph.Users -ErrorAction SilentlyContinue
+Import-Module Microsoft.Graph.Groups -ErrorAction SilentlyContinue
+Import-Module Microsoft.Graph.DirectoryObjects -ErrorAction SilentlyContinue
+
+# Prerequisite: Connect-MgGraph with appropriate scopes before running this script
 # Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All", "Directory.ReadWrite.All"
 
 # Fetch group by display name

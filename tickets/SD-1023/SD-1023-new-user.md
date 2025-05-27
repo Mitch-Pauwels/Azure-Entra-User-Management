@@ -99,6 +99,8 @@ Once tested manually, the onboarding can be performed using automation scripts:
 
 Each script is modular and reusable for future onboarding scenarios. This reflects how most enterprise environments automate identity lifecycle tasks using Entra ID.
 
+![Confirmation - Emily in Marketing Team (via GUI + PowerShell)](./powershell/user-in-group-confirmed.png)
+
 ---
 
 ## ✅ Resolution

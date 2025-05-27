@@ -1,6 +1,9 @@
-# Create a new Microsoft Entra ID user using Microsoft Graph PowerShell SDK
+# Create a Microsoft Entra ID user using Microsoft Graph PowerShell SDK (v2+)
 
-# Prerequisite: Connect using Connect-MgGraph before running this script
+# Safe module imports
+Import-Module Microsoft.Graph.Users -ErrorAction SilentlyContinue
+
+# Prerequisite: Connect-MgGraph with appropriate scopes before running this script
 # Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
 
 $body = @{
