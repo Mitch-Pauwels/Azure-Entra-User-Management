@@ -30,7 +30,6 @@ Each task is organized as a service desk ticket (e.g., `SD-1023`), with its own 
 - 🖱️ `gui/` — Azure Portal step-by-step screenshots  
 - ⚙️ `powershell/` — PowerShell terminal screenshots  
 - 📜 `scripts/` — Automation scripts for repeatable tasks  
-- 📝 `tickets/` — Markdown walkthroughs simulating real support tickets
 
 ---
 
