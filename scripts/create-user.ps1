@@ -6,7 +6,7 @@ Import-Module Microsoft.Graph.Users -ErrorAction SilentlyContinue
 # Prerequisite: Connect-MgGraph with appropriate scopes before running this script
 # Connect-MgGraph -Scopes "User.ReadWrite.All", "Directory.ReadWrite.All"
 
-New-MgUser = @{
+New-MgUser -BodyParameter @{
     accountEnabled = $true
     displayName = "Emily Carter"
     mailNickname = "emily.carter"
