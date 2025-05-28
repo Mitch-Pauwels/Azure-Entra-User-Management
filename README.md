@@ -84,8 +84,8 @@ Each ticket replicates a real-world support request and includes GUI steps and a
 
 | Ticket ID  | Title                                         | GUI | Automation |
 | ---------- | --------------------------------------------- | --- | ---------- |
-| SD-1038    | Bulk Import Users from CSV                   | ❌  | ✅         |
-| SD-1039    | Schedule Script with Azure Automation Runbook| ✅  | ✅         |
+| SD-1038    | Bulk Import Users from CSV                   |   |          |
+| SD-1039    | Schedule Script with Azure Automation Runbook|   |          |
 
 ---
 
@@ -93,8 +93,8 @@ Each ticket replicates a real-world support request and includes GUI steps and a
 
 | Ticket ID  | Title                                              | GUI | Automation |
 | ---------- | -------------------------------------------------- | --- | ---------- |
-| SD-1040    | Send Welcome Email via Logic App                   | ✅  | ✅         |
-| SD-1041    | Set Expiration Policy on Guest Users               | ✅  | ✅         |
-| SD-1042    | Conditional Access: Block Outside Trusted Locations| ✅  | ✅         |
+| SD-1040    | Send Welcome Email via Logic App                   |   |          |
+| SD-1041    | Set Expiration Policy on Guest Users               |   |          |
+| SD-1042    | Conditional Access: Block Outside Trusted Locations|   |          |
 
 ---
