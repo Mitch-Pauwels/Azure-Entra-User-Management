@@ -43,7 +43,7 @@ This scenario simulates onboarding a new employee (Emily Carter) into the organi
 
 ### [SD-1024](./tickets/SD-1024/SD-1024-password-reset.md) – Password Reset for Locked-Out User (In Progress)
 
-Handles a password reset request for a locked-out user (**James Wallace**) using both the Azure Portal and PowerShell. Demonstrates account recovery and user support automation.
+Handles a password reset request for a locked-out user (**James Walace**) using both the Azure Portal and PowerShell. Demonstrates account recovery and user support automation.
 
 ---
 
