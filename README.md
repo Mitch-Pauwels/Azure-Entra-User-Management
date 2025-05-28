@@ -25,9 +25,9 @@ This project simulates real-world tasks performed by a Service Desk Engineer in 
 
 This lab is organized by real-world service desk tickets (e.g., `SD-1023`), each with its own folder containing:
 
-- 🖱️ `gui/` — step-by-step Azure Portal screenshots  
+- 🖱️ `gui/` — Step-by-step Azure Portal screenshots  
 - ⚙️ `powershell/` — PowerShell terminal screenshots  
-- 📜 `scripts/` — automation scripts for repeatable tasks  
+- 📜 `scripts/` — Automation scripts for repeatable tasks  
 - 📝 `tickets/` — Markdown walkthroughs simulating real support tickets
 
 This structure mirrors how IT documentation is handled in real environments and keeps everything modular and easy to follow.
@@ -44,6 +44,10 @@ This scenario simulates onboarding a new employee (Emily Carter) into the organi
 ### [SD-1024](./tickets/SD-1024/SD-1024-password-reset.md) – Password Reset for Locked-Out User
 
 Handles a password reset request for a locked-out user (**James Walace**) using both the Azure Portal and PowerShell. Demonstrates account recovery and user support automation.
+
+### [SD-1025](./tickets/SD-1025/SD-1025-disable-user.md) – User Offboarding: Disable Account
+
+overs the offboarding of a departed employee (**Oliver Smith**) by disabling the user account in Microsoft Entra ID using GUI and automation. Demonstrates secure deactivation of access.
 
 ---
 
