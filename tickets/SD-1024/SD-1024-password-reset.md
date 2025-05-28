@@ -12,13 +12,13 @@
 
 ## Request Summary
 
-The user **James Wallace** is unable to sign in to his Microsoft 365 account. After multiple failed login attempts, his account was temporarily locked. IT Support received a request to unlock the account and reset his password.
+The user **James walace** is unable to sign in to his Microsoft 365 account. After multiple failed login attempts, his account was temporarily locked. IT Support received a request to unlock the account and reset his password.
 
 ---
 
 ## Requested Actions
 
-- Reset the password for `james.wallace@domainjoined.xyz`  
+- Reset the password for `james.walace@domainjoined.xyz`  
 > 👤 The user reported seeing the following error message when attempting to log in:
 
 ![User lockout message](./gui/user-lockout-message.png)
@@ -29,12 +29,12 @@ The user **James Wallace** is unable to sign in to his Microsoft 365 account. Af
 
 ## Full Process - Azure Portal (GUI)
 
-> 📄 The following sign-in logs confirm repeated failed attempts for James Wallace, triggering smart lockout:
+> 📄 The following sign-in logs confirm repeated failed attempts for James walace, triggering smart lockout:
 ![Expanded log entry](./gui/expanded-signin-details.png)
 
 ### 1. Locate the User
 - Navigate to **Microsoft Entra ID > Users**
-- Search for **James Wallace** or his UPN
+- Search for **James walace** or his UPN
 - Click on the user profile
 
 ![Locate user profile](./gui/locate-user-profile.png)
@@ -88,7 +88,7 @@ Write-Host "🔐 Temp password copied to clipboard: $password"
 
 ### 2. Reset User’s Password in Entra ID
 ```powershell
-$user = Get-MgUser -Filter "userPrincipalName eq 'james.wallace@domainjoined.xyz'"
+$user = Get-MgUser -Filter "userPrincipalName eq 'james.walace@domainjoined.xyz'"
 
 Update-MgUser -UserId $user.Id -PasswordProfile @{
     Password = $password
@@ -118,14 +118,19 @@ The script will:
 
 Example:
 ```powershell
-.\scripts\reset-user-password.ps1 -UserPrincipalName "james.wallace@domainjoined.xyz"
+.\scripts\reset-user-password.ps1 -UserPrincipalName "james.walace@domainjoined.xyz"
 ```
+### 📸 Script Execution Result
+
+Screenshot below shows successful execution of the password reset script, confirming account re-enablement and password policy application.
+
+![Password reset script execution result](./powershell/reset-script-success.png)
 
 ---
 
 ## Resolution
 - Review of sign-in logs confirmed smart lockout occurred due to repeated failed sign-ins.
 
-The account for **James Wallace** was successfully unlocked by resetting the password and requiring a change at next sign-in. The temporary password was securely provided to the user via internal channels.
+The account for **James walace** was successfully unlocked by resetting the password and requiring a change at next sign-in. The temporary password was securely provided to the user via internal channels.
 
 🗂️ Ticket Closed.
