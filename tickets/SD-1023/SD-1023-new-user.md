@@ -29,7 +29,6 @@ HR submitted a request to onboard a new employee, **Emily Carter**, who is joini
 - Click **Create**
 
 ![User creation in portal](./gui/create-user-portal.png)
-![User profile confirmation](./gui/emily-carter-created.png)
 
 ---
 
