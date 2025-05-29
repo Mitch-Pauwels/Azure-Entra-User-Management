@@ -46,7 +46,7 @@ Each ticket replicates a real-world support request and includes GUI steps and a
 | [SD-1023](./tickets/SD-1023/SD-1023-new-user.md)       | New User Account Creation          | ✅  | ✅         |
 | [SD-1024](./tickets/SD-1024/SD-1024-password-reset.md) | Password Reset for Locked-Out User | ✅  | ✅         |
 | [SD-1025](./tickets/SD-1025/SD-1025-disable-user.md)   | User Offboarding: Disable Account  | ✅  | ✅         |
-| SD-1026                                                | Update User Properties (Single)    | ✅  | ❌         |
+| [SD-1026](./tickets/SD-1026/SD-1026-update-user-attributes.md)                                                | Update User Properties (Single)    | ✅  | ✅         |
 | SD-1027                                                | Bulk Update User Properties        | ❌  | ✅         |
 
 ---
