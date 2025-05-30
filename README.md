@@ -1,101 +1,115 @@
-# 🚀 Azure Entra ID User Management Project
+# 🚀 Azure Entra ID + Microsoft 365 User Management Project
 
-This project simulates real-world tasks performed by a Service Desk Engineer in an Azure and Microsoft Entra ID (formerly Azure AD) environment. It showcases how to:
+This project simulates real-world identity, email, and resource management tasks for a fictional managed IT services provider:  
+**💼 Company Name:** DomainJoinedGlobal  
+**🌐 Domain:** domainjoined.xyz  
 
-- Create, manage, and secure user accounts in **Microsoft Entra ID**
-- Combine **PowerShell automation** and **GUI-based workflows**
-- Respond to realistic **IT service desk tickets**
-- Build a production-style lab replicating common helpdesk responsibilities
-
-🎯 **Goal:** Demonstrate the ability to manage identity lifecycle operations — user onboarding, updates, and offboarding — using Microsoft Entra ID and automation tools.
+All tasks are handled by the internal IT support team and executed using a mix of GUI-based workflows and automation via PowerShell, CLI, and Logic Apps — following best practices found in modern cloud environments.
 
 ---
 
-## 📦 What This Project Covers
+## 🎯 Project Goals
 
-✅ Microsoft Entra ID (Azure Active Directory)  
-✅ User account creation and management  
-✅ Group creation and membership assignment  
-✅ GUI-based identity administration  
-✅ Automation using PowerShell and Microsoft Graph SDK  
-✅ Simulated service desk ticket workflows  
-✅ Reusable scripting for onboarding scenarios
+- Demonstrate the ability to manage identity lifecycle operations using Microsoft Entra ID
+- Provide real-world service desk workflows for Microsoft 365 environments
+- Automate repetitive or bulk operations via PowerShell scripts
+- Showcase hybrid cloud support scenarios using Azure virtual machines and RBAC
+- Simulate professional ticket resolution for onboarding, support, and security tasks
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technologies Covered
 
-Each task is organized as a service desk ticket (e.g., `SD-1023`), with its own folder containing:
-
-- 🖱️ `gui/` — Azure Portal step-by-step screenshots  
-- ⚙️ `powershell/` — PowerShell terminal screenshots  
-- 📜 `scripts/` — Automation scripts for repeatable tasks  
-
----
-
-## 🎫 Ticket Scenarios by Category
-
-Each ticket replicates a real-world support request and includes GUI steps and automation when applicable.
+- Microsoft Entra ID (Azure Active Directory)
+- Microsoft 365 (Exchange Online, Teams, SharePoint, OneDrive)
+- PowerShell
+- Azure Portal
+- Azure CLI
+- Logic Apps
+- Conditional Access & PIM
+- Group-based licensing and access packages
 
 ---
 
-### 🔄 User Lifecycle Management
+## 🗃️ Ticket Overview
 
-| Ticket ID                                              | Title                              | GUI | Automation |
-| ------------------------------------------------------ | ---------------------------------- | --- | ---------- |
-| [SD-1023](./tickets/SD-1023/SD-1023-new-user.md)       | New User Account Creation          | ✅  | ✅         |
-| [SD-1024](./tickets/SD-1024/SD-1024-password-reset.md) | Password Reset for Locked-Out User | ✅  | ✅         |
-| [SD-1025](./tickets/SD-1025/SD-1025-disable-user.md)   | User Offboarding: Disable Account  | ✅  | ✅         |
-| [SD-1026](./tickets/SD-1026/SD-1026-update-user-attributes.md)                                                | Update User Properties (Single)    | ✅  | ✅         |
-| SD-1027                                                | Bulk Update User Properties        | ❌  | ✅         |
+### 📁 Identity Lifecycle: Core User Management
+
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| [SD-1023](./tickets/SD-1023/sd-1023.md) | New User Account Creation | ✅ | ✅ |
+| [SD-1024](./tickets/SD-1024/sd-1024.md) | Password Reset for Locked-Out User | ✅ | ✅ |
+| [SD-1025](./tickets/SD-1025/sd-1025.md) | User Offboarding: Disable Account | ✅ | ✅ |
+| [SD-1026](./tickets/SD-1026/sd-1026.md) | Update User Properties (Single Edit) | ✅ | ❌ |
+
+## **🚧 TICKETS BELOW ARE UNDER DEVELOPMENT 🚧**
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1027 | Bulk User Onboarding (via CSV) | ❌ | ✅ |
+| SD-1028 | Bulk Update User Properties (via CSV) | ❌ | ✅ |
+| SD-1029 | Bulk Offboarding (Disable Multiple Users) | ❌ | ✅ |
+
+### 📁 Group & Role Management
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1030 | Create Security Groups + Assign Members | ✅ | ✅ |
+| SD-1031 | Assign Microsoft 365 Licenses via Group-Based Licensing | ✅ | ✅ |
+| SD-1032 | Role Assignment via Azure AD (e.g. Password Administrator) | ✅ | ✅ |
+| SD-1033 | Remove User from Group | ✅ | ✅ |
+
+### 📁 Email and Mailbox Management (Exchange Online)
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1034 | Create User Mailbox (via license assignment) | ✅ | ✅ |
+| SD-1035 | Create Shared Mailbox + Assign Access | ✅ | ✅ |
+| SD-1036 | Add Email Alias to User | ✅ | ✅ |
+| SD-1037 | Enable Mailbox Auto-Forwarding | ✅ | ✅ |
+| SD-1038 | Convert User Mailbox to Shared Mailbox (Offboarding) | ✅ | ✅ |
+
+### 📁 Access Management & Security
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1039 | Setup Conditional Access Policy: MFA for Admins | ✅ | ✅ |
+| SD-1040 | Configure Self-Service Password Reset (SSPR) | ✅ | ✅ |
+| SD-1041 | Create and Assign Access Package (Entitlement Mgmt) | ✅ | ✅ |
+| SD-1042 | Set up an Access Review for Group Membership | ✅ | ✅ |
+| SD-1043 | Enable PIM for Admin Roles | ✅ | ✅ |
+
+### 📁 Teams, OneDrive, SharePoint Admin Tasks
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1044 | Assign Teams License and Verify Access | ✅ | ❌ |
+| SD-1045 | Provision SharePoint Site (via M365 Admin Center) | ✅ | ❌ |
+| SD-1046 | Verify OneDrive Setup for New User | ✅ | ❌ |
+
+### 📁 Azure Admin / Resource Management
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1047 | Create a Windows Server VM with NSG Rules | ✅ | ✅ |
+| SD-1048 | Create a Linux VM and SSH using Azure CLI | ❌ | ✅ |
+| SD-1049 | Setup an Azure Resource Group + Assign RBAC Role | ✅ | ✅ |
+| SD-1050 | Create and Assign Custom RBAC Role | ✅ | ✅ |
+
+### 📁 Automation & Governance
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| SD-1051 | Create Logic App: Auto-Onboard from Email Trigger | ❌ | ✅ |
+| SD-1052 | Schedule User Status Reports via PowerShell (CSV output) | ❌ | ✅ |
+| SD-1053 | Automate License Assignment from CSV | ❌ | ✅ |
+
+
 
 ---
 
-### 👥 Group & Role Management
+## 👨‍💻 Author
 
-| Ticket ID  | Title                              | GUI | Automation |
-| ---------- | ---------------------------------- | --- | ---------- |
-| SD-1030    | Assign User to Security Group      |     |            |
-| SD-1031    | Create and Manage Security Groups  |     |            |
-| SD-1032    | Assign Built-In Role to User       |     |            |
-
----
-
-### 📧 Email & Identity
-
-| Ticket ID  | Title                              | GUI | Automation |
-| ---------- | ---------------------------------- | --- | ---------- |
-| SD-1033    | Set/Change Sign-In Alias (UPN)     |     |            |
-| SD-1034    | Block Legacy Authentication        |     |            |
-| SD-1035    | Enforce MFA for a Group            |     |            |
-
----
-
-### 🔐 Security & Compliance
-
-| Ticket ID  | Title                                   | GUI | Automation |
-| ---------- | --------------------------------------- | --- | ---------- |
-| SD-1036    | Enable User Risk Policy                 |     |            |
-| SD-1037    | Export Sign-In Logs for Troubleshooting |     |            |
-
----
-
-### 🤖 Automation
-
-| Ticket ID  | Title                                         | GUI | Automation |
-| ---------- | --------------------------------------------- | --- | ---------- |
-| SD-1038    | Bulk Import Users from CSV                   |   |          |
-| SD-1039    | Schedule Script with Azure Automation Runbook|   |          |
-
----
-
-### 🧪 Bonus Scenarios
-
-| Ticket ID  | Title                                              | GUI | Automation |
-| ---------- | -------------------------------------------------- | --- | ---------- |
-| SD-1040    | Send Welcome Email via Logic App                   |   |          |
-| SD-1041    | Set Expiration Policy on Guest Users               |   |          |
-| SD-1042    | Conditional Access: Block Outside Trusted Locations|   |          |
-
----
-
+Mitch Pauwels  
+[LinkedIn](https://www.linkedin.com/in/mitch-pauwels)
