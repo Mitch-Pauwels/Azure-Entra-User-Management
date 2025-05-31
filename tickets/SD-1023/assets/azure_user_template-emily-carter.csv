@@ -1,0 +1,2 @@
+UserPrincipalName,DisplayName,GivenName,Surname,JobTitle,Department,CompanyName,OfficeLocation,StreetAddress,City,State,PostalCode,Country,PhoneNumber,MobilePhone,Manager,UsageLocation,PreferredLanguage,AccountEnabled,ForceChangePasswordNextSignIn,Password,MailNickname,ProxyAddresses,LicenseAssignment,EmployeeHireDate
+emily.carter@domainjoined.xyz,Emily Carter,Emily,Carter,Marketing Analyst,Marketing,,,,,,,GB,,,john.sanders@domainjoined.xyz,GB,,TRUE,TRUE,,emily.carter,,,2025-06-03

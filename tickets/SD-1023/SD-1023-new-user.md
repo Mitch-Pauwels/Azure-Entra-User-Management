@@ -1,140 +1,155 @@
-# 🎫 Ticket SD-1023 – New User Account Creation
+# 🎫 Ticket ID: SD-1023 - New User Account Creation
 
-## 📘 Table of Contents
+## 🏢 Scenario
 
-- [🖱️ GUI (Azure Portal)](#full-process---azure-portal-gui)
-- [💻 PowerShell (Step-by-Step)](#full-process---powershell-step-by-step)
-- [⚙️ Script Automation](#full-process---powershell-script-automation)
-- [📨 Welcome Email Template](#welcome-email-template)
-- [✅ Resolution](#resolution)
+It’s Monday morning at **DomainJoinedGlobal**, and the IT support team has just received a ticket from HR via the internal helpdesk portal.  
 
----
+The request is to **onboard a new Marketing team member, Emily Carter**, who starts next Monday. HR has included all the necessary details, and the hiring manager has requested access to be ready by the end of the day.  
 
-## 📄 Request Summary
-HR submitted a request to onboard a new employee, **Emily Carter**, who is joining the **Marketing** department.
+As the assigned support engineer, it’s your responsibility to ensure that Emily’s account is created, assigned the appropriate Microsoft 365 license, added to the correct group, and that all steps are properly documented for auditing purposes.
 
-## 📝 Requested Actions
-- Create Microsoft Entra ID user account
-- Add user to "Marketing Team" security group
-- Send welcome email with login details
 
----
+<details>
+  <summary>📋 View Employee Details</summary>
 
-## Full Process - Azure Portal (GUI)
+  - **Full Name:** Emily Carter  
+  - **Job Title:** Marketing Analyst  
+  - **Department:** Marketing  
+  - **Start Date:** 2025-06-03  
+  - **Username:** emily.carter  
+  - **Email:** emily.carter@domainjoined.xyz  
+  - **Manager:** John Sanders  
+  - **Group Membership:** Marketing Team  
 
-### 1. Create User
-- Navigate to **Microsoft Entra ID > Users > + New User**
-- Fill in user details for Emily Carter
-- Leave account enabled and set "Force password change at next login"
-- Click **Create**
-
-![User creation in portal](./gui/create-user-portal.png)
+</details>
 
 ---
 
-### 2. Create and Assign Group
-
-> ⚠️ _Note: In a real production environment, the "Marketing Team" group would typically already exist as part of a predefined structure. In this lab, the group is created for demonstration and educational purposes._
-
-
-- Go to **Microsoft Entra ID > Groups > + New Group**
-- Create a **Security group** named `Marketing Team`
-- Set membership type to **Assigned**
-- Add Emily Carter as a member
-
-![Group creation in portal](./gui/create-group-portal.png)
-![User added to group via portal](./gui/add-user-to-group-portal.png)
+## 🎯 Objective
+- Create a Microsoft Entra ID user for Emily Carter
+- Add her to the *Marketing Team* security group
+- Assign her a Microsoft 365 Business Standard license
+- Prepare a welcome email with login details
 
 ---
 
-## Full Process - PowerShell (Step-by-Step)
+## 🛠️ Technologies Used
+- **Microsoft Entra ID (Azure Active Directory)**
+- **Azure Portal (GUI)**
+- **PowerShell**
+- **Microsoft Graph PowerShell SDK**
+- **Microsoft 365 Licensing**
 
-### 1. Create User (if applicable via script)
+---
+
+## 🖥️ Method 1: GUI
+### Guided Steps:
+
+<details>
+  <summary>📸 Step 1: Create Entra ID User</summary>
+
+  - Go to **Microsoft Entra ID > Users > + New User**
+  - **[Basic Tab]** Fill in user details for Emily Carter
+  - Enable account and require password change on first login
+  - **[Properties Tab]** Add John Sanders as marketing manager
+  - **[Review + Create Tab]** Verify all provided employee details have been filled in
+  - Click **Create**
+
+  ![Create User](./gui/create-user.png)
+
+
+</details>
+
+
+<details>
+  <summary>📸 Step 2: Add User to Existing Group</summary>
+
+  - Navigate to **Microsoft Entra ID > Groups**
+  - Search for the group: `Marketing Team`
+  - Click on the group name to open its settings
+  - Go to **Members** tab > click **+ Add Members**
+  - Search for **Emily Carter**, select her, then click **Select**
+  - Confirm the addition by clicking **Add**
+
+  ![Add User to Group](./gui/add-user-to-group-portal.png)
+</details>
+
+
+<details>
+  <summary>📸 Step 3: Assign Microsoft 365 License</summary>
+
+  - Go to **https://admin.microsoft.com**
+  - Navigate to **Billing > Licenses**
+  - Click on **Microsoft 365 Business Standard**
+  - Click **Assign licenses**
+  - Select **Emily Carter** and click **Assign**
+
+  After assigning the license, you will be prompted to send a standard microsoft email to the user and you can add a custom message to it.
+
+  ![Assign License](./gui/assign-license.png)
+
+  > Note: Assigning licenses via the Billing section offers the option to immediately email login credentials, which is useful in onboarding scenarios.
+
+  The system-generated sign-in email was successfully delivered to Emily's mailbox.
+
+  To ensure consistency, a [manual welcome email template](./assets/welcome-email-template.md) is provided to simulate what would be sent in a production environment.
+
+</details>
+
+
+---
+
+## 💻 Method 2: PowerShell / Script Automation
+### Script Command:
 ```powershell
-New-MgUser -BodyParameter @{
-  accountEnabled = $true
-  displayName = "Emily Carter"
-  mailNickname = "emily.carter"
-  userPrincipalName = "emily.carter@domainjoined.xyz"
-  passwordProfile = @{
-    forceChangePasswordNextSignIn = $true
-    password = "P@ssw0rd123!"
-  }
-}
-```
-![Create User via PowerShell](./powershell/create-user-via-ps.png)
-
-### 2. Create Group
-
-> ⚠️ _Note: In a real production environment, the "Marketing Team" group would typically already exist as part of a predefined structure. In this lab, the group is created for demonstration and educational purposes._
-
-```powershell
-$groupParams = @{
-    DisplayName     = "Marketing Team"
-    MailEnabled     = $false
-    MailNickname    = "marketingteam"
-    SecurityEnabled = $true
-    GroupTypes      = @()
-}
-
-$group = New-MgGroup @groupParams
+.\scripts\azure_user_creation_script.ps1
+.\scripts\azure_group_assignment.ps1
+.\scripts\azure_license_assignment.ps1
 ```
 
-![Group creation in PowerShell](./powershell/create-security-group-ps.png)
+### Script Execution:
 
-### 3. Add to Group
-```powershell
-$group = Get-MgGroup -Filter "displayName eq 'Marketing Team'"
-$userId = (Get-MgUser -Filter "userPrincipalName eq 'emily.carter@domainjoined.xyz'").Id
+<details>
+  <summary>📸 User Creation</summary>
 
-New-MgGroupMemberByRef -GroupId $group.Id -BodyParameter @{
-  "@odata.id" = "https://graph.microsoft.com/v1.0/directoryObjects/$userId"
-}
-```
+  ![User Creation](./powershell/create-user-via-ps.png)
 
-![User added to group via PowerShell](./powershell/add-user-to-group-ps.png)
+</details>
+
+<details>
+  <summary>📸 Assign to group</summary>
+
+  ![Assign user to group](./powershell/add-user-to-group-ps.png)
+
+</details>
+
+<details>
+  <summary>📸 Assign License</summary>
+
+  ![License added to user](./powershell/add-license-to-user-ps.png)
+
+</details>
+
+
 
 ---
 
-## Full Process - PowerShell Script Automation
+## Summary
 
-Once tested manually, the onboarding can be performed using automation scripts:
+Emily Carter has been successfully onboarded into the DomainJoinedGlobal environment.  
+Her account was created in Microsoft Entra ID, added to the appropriate security group (`Marketing Team`), and assigned a Microsoft 365 Business Standard license.  
 
-```powershell
-.\scripts\create-user.ps1
-.\scripts\create-group.ps1
-.\scripts\add-user-to-group.ps1
-```
+This setup ensures that she has access to email, collaboration tools, and all necessary marketing resources from day one. A customized welcome email was also prepared to guide her through the login process.
 
-Each script is modular and reusable for future onboarding scenarios. This reflects how most enterprise environments automate identity lifecycle tasks using Entra ID.
-
-![Confirmation - Emily in Marketing Team (via GUI + PowerShell)](./powershell/user-in-group-confirmed.png)
+This task reflects a typical first-line service desk operation, combining both GUI and PowerShell methods for flexibility and documentation.
 
 ---
 
-## 📨 Welcome Email Template
+## 📂 Project Files
+- [`welcome-email-template`](.\assets/welcome-email-template.md)
+- [`azure_user_creation_script.ps1`](.\scripts\azure_user_creation_script.ps1)
+- [`azure_group_assignment.ps1`](.\scripts\azure_group_assignment.ps1)
+- [`azure_license_assignment.ps1`](.\scripts\azure_license_assignment.ps1)
+- [`azure_user_template-emily-carter.csv`](.\assets\azure_user_template-emily-carter.csv)
 
-Although email delivery is not automated due to subscription limitations, the following template is used to send credentials to new employees manually from the admin mailbox:
 
-```
-Subject: Welcome to DomainJoined!
-
-Hello Emily,
-
-Your Microsoft 365 account has been created. Please find your login details below:
-
-Username: emily.carter@domainjoined.xyz
-Temporary password: P@ssw0rd123!
-
-Log in at https://portal.office.com and follow the prompt to change your password.
-
-Welcome aboard!
-- IT Support Team
-```
-
----
-
-## ✅ Resolution
-Emily Carter has been successfully onboarded with an active user account, assigned to the Marketing Team group, and sent initial credentials.
-
-🗂️ Ticket Closed.

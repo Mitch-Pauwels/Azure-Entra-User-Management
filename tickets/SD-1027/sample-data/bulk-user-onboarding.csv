@@ -1,0 +1,4 @@
+UserPrincipalName,DisplayName,JobTitle,Department,Password,MailNickname,UsageLocation,AccountEnabled,ForceChangePasswordNextSignIn
+john.smith@company.com,John Smith,Senior Cloud Engineer,IT,TempPass123!,john.smith,US,true,true
+jane.doe@company.com,Jane Doe,HR Manager,Human Resources,TempPass456!,jane.doe,US,true,true
+bob.wilson@company.com,Bob Wilson,Sales Manager,Sales,TempPass789!,bob.wilson,US,true,true
