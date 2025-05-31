@@ -1,10 +1,11 @@
-# 🚀 Azure Entra ID + Microsoft 365 User Management Project
+# 🔷 Azure Entra ID / Microsoft 365 User Management Project 🔷
+
 
 This project simulates real-world identity, email, and resource management tasks for a fictional managed IT services provider:  
 **💼 Company Name:** DomainJoinedGlobal  
 **🌐 Domain:** domainjoined.xyz  
 
-All tasks are handled by the internal IT support team and executed using a mix of GUI-based workflows and automation via PowerShell, CLI, and Logic Apps — following best practices found in modern cloud environments.
+All tasks are handled by the internal IT support team and executed using a mix of GUI-based workflows and automation via PowerShell, CLI, and Logic Apps following best practices found in modern cloud environments.
 
 ---
 
@@ -108,8 +109,3 @@ All tasks are handled by the internal IT support team and executed using a mix o
 
 
 ---
-
-## 👨‍💻 Author
-
-Mitch Pauwels  
-[LinkedIn](https://www.linkedin.com/in/mitch-pauwels)
