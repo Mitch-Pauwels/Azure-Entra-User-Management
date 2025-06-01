@@ -1,0 +1,5 @@
+﻿version:v1.0
+Name [displayName] Required,User name [userPrincipalName] Required,Initial password [passwordProfile] Required,Block sign in (Yes/No) [accountEnabled] Required,First name [givenName],Last name [surname],Job title [jobTitle],Department [department],Usage location [usageLocation],Street address [streetAddress],State or province [state],Country or region [country],Office [physicalDeliveryOfficeName],City [city],ZIP or postal code [postalCode],Office phone [telephoneNumber],Mobile phone [mobile]
+Teagan Pacheco,teagan.pacheco@domainjoined.xyz,Autogen@123!,No,Teagan,Pacheco,HR Generalist,Human Resources,GB,,,,,,,,
+Andrew Brown,andrew.brown@domainjoined.xyz,Autogen@123!,No,Andrew,Brown,Sales Associate,Sales,GB,,,,,,,,
+Joshua Heck,joshua.heck@domainjoined.xyz,Autogen@123!,No,Joshua,Heck,IT Support Specialist,IT,GB,,,,,,,,
