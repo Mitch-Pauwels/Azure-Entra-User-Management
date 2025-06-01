@@ -1,136 +1,116 @@
-# 🎫 Ticket SD-1024 – Password Reset for Locked-Out User
+# 🔷 Ticket ID: SD-1024 - Password Reset for Locked-Out User 🔷
 
-## 📘 Table of Contents
-- [📄 Request Summary](#request-summary)  
-- [📝 Requested Actions](#requested-actions)  
-- [🖱️ GUI (Azure Portal)](#full-process---azure-portal-gui)
-- [💻 PowerShell (Step-by-Step)](#full-process---powershell-step-by-step)  
-- [⚙️ Script Automation](#script-automation)  
-- [✅ Resolution](#resolution)
+## 🏢 Scenario
 
----
+It’s mid-morning at **DomainJoinedGlobal**, and a ticket comes into the helpdesk from the Finance department.  
 
-## Request Summary
+**James Walace**, a team member, reports he’s been locked out of his account after several failed password attempts. He needs immediate access to finish a time-sensitive financial report in OneDrive.  
 
-The user **James walace** is unable to sign in to his Microsoft 365 account. After multiple failed login attempts, his account was temporarily locked. IT Support received a request to unlock the account and reset his password.
+You're the first-line support engineer assigned to this ticket. Your job is to verify his status, reset his password, and ensure he can log back in successfully.
 
----
+<details>
+  <summary>📋 View Employee Details</summary>
 
-## Requested Actions
+  - **Full Name:** James Walace  
+  - **Job Title:** Financial Analyst  
+  - **Department:** Finance  
+  - **Email:** james.walace@domainjoined.xyz  
+  - **Username:** james.walace  
+  - **Manager:** Laura Simmons  
 
-- Reset the password for `james.walace@domainjoined.xyz`  
-> 👤 The user reported seeing the following error message when attempting to log in:
-
-![User lockout message](./gui/user-lockout-message.png)
-- Force a password change at next sign-in  
-- Optionally unblock sign-in if the account is locked
+</details>
 
 ---
 
-## Full Process - Azure Portal (GUI)
+## 🎯 Objective
 
-> 📄 The following sign-in logs confirm repeated failed attempts for James walace, triggering smart lockout:
-![Expanded log entry](./gui/expanded-signin-details.png)
+- Locate and verify the locked-out user account  
+- Reset the user’s password  
+- Ensure “force password change at next sign-in” is enabled  
+- Send (or simulate) sign-in information to the user
 
-### 1. Locate the User
-- Navigate to **Microsoft Entra ID > Users**
-- Search for **James walace** or his UPN
-- Click on the user profile
+---
 
-![Locate user profile](./gui/locate-user-profile.png)
+## 🛠️ Technologies Used
 
+- Microsoft Entra ID (Azure Active Directory)  
+- Azure Portal (GUI)  
+- PowerShell  
+- Microsoft Graph PowerShell SDK  
+- Microsoft 365 Admin Center
 
-### 2. Reset Password
-- In the user’s overview pane, click **Reset Password**
-- Click **Auto-generate password** (or specify manually)
-- Ensure **Require this user to change their password when they first sign in** is enabled
-- Copy the password and provide it securely to the user
+---
 
-![Reset password button](./gui/reset-password-button.png)
-![Password reset confirmation](./gui/reset-confirmation.png)
+## 🖥️ Method 1: GUI
+
+<details>
+  <summary>📸 Step 1: Locate and Unlock User</summary>
+
+  - Go to **Microsoft Entra ID > Users**
+  - Search for **James Walace** and open his profile
+  - Go to Sign-in Logs and confirm lockout status/reason
+
+  ![Locate User](./gui/expanded-signin-details.png)
+</details>
+
+<details>
+  <summary>📸 Step 2: Reset Password</summary>
+
+  - Go back to **Overview**, click **Reset password** button.
+  - A popup will appear which explains that he will be assigned a temporary password that must be changed at next sign in.
+  - Click **Reset Password**
+
+  ![Reset Password](./gui/reset-password.png)
+</details>
+
+<details>
+  <summary>📸 Step 3: Copy and Deliver Password</summary>
+
+  - After clicking **Reset password**, a confirmation message appears showing the system-generated temporary password.
+  - Click **Copy password** and securely deliver it to the user (e.g., via phone call, in-person, or secure chat).
+  - Ensure the user knows they’ll be prompted to change it at next sign-in.
+
+  > 📩 While Entra ID does not offer an automatic “send password” option, admins typically use a standardized email or secure messaging method.
+
+  A sample notification message is available here:  
+  [`password-reset-template.md`](./assets/password-reset-template.md)
+
+  ![Reset Confirmation](./gui/reset-confirmation.png)
+</details>
 
 
 ---
 
-## Full Process - PowerShell (Step-by-Step)
+## 💻 Method 2: PowerShell / Script Automation
 
-### 1. Generate a New Password
-```powershell
-function New-RandomPassword {
-    $length = 12
-    $chars = @{
-        upper   = [char[]]'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        lower   = [char[]]'abcdefghijklmnopqrstuvwxyz'
-        digit   = [char[]]'0123456789'
-        special = [char[]]'!@#$%^&*()-_=+[]{}'
-    }
-
-    $password = @(
-        $chars.upper | Get-Random
-        $chars.lower | Get-Random
-        $chars.digit | Get-Random
-        $chars.special | Get-Random
-    )
-
-    $allChars = ($chars.upper + $chars.lower + $chars.digit + $chars.special)
-    for ($i = $password.Count; $i -lt $length; $i++) {
-        $password += $allChars | Get-Random
-    }
-
-    return -join ($password | Sort-Object {Get-Random})
-}
-
-$password = New-RandomPassword
-$password | Set-Clipboard
-Write-Host "🔐 Temp password copied to clipboard: $password"
-```
-![Open PowerShell terminal](./powershell/open-terminal.png)
-
-### 2. Reset User’s Password in Entra ID
-```powershell
-$user = Get-MgUser -Filter "userPrincipalName eq 'james.walace@domainjoined.xyz'"
-
-Update-MgUser -UserId $user.Id -PasswordProfile @{
-    Password = $password
-    ForceChangePasswordNextSignIn = $true
-}
-
-Write-Host "✅ Password reset complete for $UserPrincipalName and account enabled." -ForegroundColor Green
-```
-
-> 💡 If the account is also locked, you can optionally unblock it via the GUI or let Azure automatically unblock it after a cooldown period.
-
-![Reset password via PowerShell](./powershell/reset-password-command.png)
-
----
-
-## Script Automation
-
-Use a modular script for quick resets:
+### Script Command:
 ```powershell
 .\scripts\reset-user-password.ps1
 ```
 
-The script will:
-- Accept UPN as input
-- Generate and apply a new secure password
-- Copy password to clipboard for secure delivery
+### Script Execution:
 
-Example:
-```powershell
-.\scripts\reset-user-password.ps1 -UserPrincipalName "james.walace@domainjoined.xyz"
-```
-### 📸 Script Execution Result
+<details>
+  <summary>📸 Execution Output</summary>
 
-Screenshot below shows successful execution of the password reset script, confirming account re-enablement and password policy application.
+  ![Password Reset via PowerShell](./powershell/password-reset-success.png)
+</details>
 
-![Password reset script execution result](./powershell/reset-script-success.png)
+✅ The PowerShell script resets James’s password, enforces password change, and optionally logs the action.
 
 ---
 
-## Resolution
-- Review of sign-in logs confirmed smart lockout occurred due to repeated failed sign-ins.
+## Summary
 
-The account for **James walace** was successfully unlocked by resetting the password and requiring a change at next sign-in. The temporary password was securely provided to the user via internal channels.
+James Walace was successfully assisted within the **DomainJoinedGlobal** environment.  
+His password was reset, and he was prompted to change it at the next sign-in. No license changes were required.  
+A recovery email was simulated using the [password reset template](./assets/password-reset-template.md).
 
-🗂️ Ticket Closed.
+This reflects a common support scenario in corporate environments and demonstrates both manual and scripted recovery paths.
+
+---
+
+## 📂 Project Files
+
+- [`reset-user-password.ps1`](./scripts/reset-user-password.ps1)  
+- [`password-reset-template.md`](./assets/password-reset-template.md)
