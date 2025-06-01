@@ -44,12 +44,12 @@ All tasks are handled by the internal IT support team and executed using a mix o
 | [SD-1025](./tickets/SD-1025/SD-1025-disable-user.md) | User Offboarding: Disable Account | ✅ | ✅ |
 | [SD-1026](./tickets/SD-1026/SD-1026-update-user-attributes.md) | Update User Properties (Single Edit) | ✅ | ❌ |
 | [SD-1027](./tickets/SD-1027/SD-1027-bulk-user-onboarding.md) | Bulk User Onboarding (via CSV) | ✅ | ✅ |
+| [SD-1028](./tickets/SD-1027/SD-1028-bulk-update-user-properties) | Bulk Update User Properties (via CSV) | ❌ | ✅ |
 
 ## **🚧 TICKETS BELOW ARE UNDER DEVELOPMENT 🚧**
 
 | Ticket ID | Title | GUI | Automation |
 |-----------|-------|-----|------------|
-| SD-1028 | Bulk Update User Properties (via CSV) | ❌ | ✅ |
 | SD-1029 | Bulk Offboarding (Disable Multiple Users) | ❌ | ✅ |
 
 ### 📁 Group & Role Management
