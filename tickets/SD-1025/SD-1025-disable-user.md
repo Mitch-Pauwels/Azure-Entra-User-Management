@@ -1,97 +1,90 @@
-# 🎫 Ticket SD-1025 – User Offboarding: Disable Account
 
-## 📘 Table of Contents
+# 🎫 Ticket ID: SD-1025 - User Offboarding: Disable Account
 
-- [📄 Request Summary](#request-summary)
-- [📝 Requested Actions](#requested-actions)
-- [🖱️ GUI (Azure Portal)](#full-process---azure-portal-gui)
-- [⚙️ Script Automation](#script-automation)
-- [✅ Resolution](#resolution)
+## 🏢 Scenario
 
----
+The HR department at **DomainJoinedGlobal** has informed IT support that **Oliver Smith**, a Finance team member, has left the organization effective immediately. IT has received a formal offboarding request to disable the user's Microsoft Entra ID account to prevent any further access to internal systems.
 
-## Request Summary
+This request came in via the helpdesk portal and must be completed by the end of the business day for compliance and security purposes.
 
-IT was notified that **Oliver Smith** has left the organization and must be offboarded immediately.
+<details>
+  <summary>📋 View Employee Details</summary>
 
----
+  - **Full Name:** Oliver Smith  
+  - **Job Title:** Financial Analyst  
+  - **Department:** Finance  
+  - **Username:** oliver.smith  
+  - **Email:** oliver.smith@domainjoined.xyz
 
-## Requested Actions
-
-- Disable the user account in Microsoft Entra ID
-- Prevent any further logins or access
+</details>
 
 ---
 
-## Full Process - Azure Portal (GUI)
-
-### 1. Locate User Account
-- Navigate to **Microsoft Entra ID > Users**
-- Search for `oliver.smith@domainjoined.xyz` and open the user profile
-
-### 2. Disable Account
-- Click **Edit Properties**
-- Navigate to **Settings**
-- Uncheck **Account Enabled** (green checkmark toggle)
-- Click **Save**
-
-![Open user profile](./gui/open-user-profile.png)  
-![Disable account via GUI](./gui/disable-account-gui.png)
+## 🎯 Objective
+- Disable Oliver Smith's Microsoft Entra ID account immediately
+- Ensure he can no longer sign in to Microsoft 365 or corporate resources
+- Document both GUI and PowerShell methods for auditing
 
 ---
 
-## Script Automation
+## 🛠️ Technologies Used
+- **Microsoft Entra ID (Azure Active Directory)**
+- **Azure Portal (GUI)**
+- **PowerShell**
+- **Microsoft Graph PowerShell SDK**
 
-Use the following PowerShell script to disable a user account safely and confirm the action succeeded:
+---
 
+## 🖥️ Method 1: GUI
+
+<details>
+  <summary>📸 Step 1: Locate and Edit the User Account</summary>
+
+  - Go to **Microsoft Entra ID > Users**
+  - Search for **Oliver Smith** or use his email: `oliver.smith@domainjoined.xyz`
+  - Click on the user to open their profile page
+  - Click **Edit Properties**
+
+    ![Edit Properties - GUI](./gui/open-user-profile.png)
+
+</details>
+
+<details>
+  <summary>📸 Step 2: Disable the Account</summary>
+
+  - In the **Settings** section, uncheck **Account enabled**
+  - Click **Save**
+
+  ![Disable User - GUI](./gui/disable-user.png)
+
+</details>
+
+---
+
+## 💻 Method 2: PowerShell / Script Automation
+
+### Script Command:
 ```powershell
 .\scripts\disable-user-account.ps1
 ```
 
-```powershell
-param (
-    [string]$UserPrincipalName
-)
+### Script Execution:
+<details>
+  <summary>📸 PowerShell Output</summary>
 
-# Prompt if not provided
-if (-not $UserPrincipalName) {
-    $UserPrincipalName = Read-Host "UserPrincipalName (e.g. oliver.smith@domainjoined.xyz)"
-}
+  ![Disable User via PowerShell](./powershell/disable-user.png)
 
-# Get the user
-$user = Get-MgUser -Filter "userPrincipalName eq '$UserPrincipalName'"
-
-if (-not $user) {
-    Write-Host "❌ User not found: $UserPrincipalName" -ForegroundColor Red
-    exit 1
-}
-
-# Disable the user
-try {
-    Update-MgUser -UserId $user.Id -AccountEnabled:$false
-
-    # Re-fetch with specific property to verify
-    $updatedUser = Get-MgUser -UserId $user.Id -Property "accountEnabled"
-
-    if ($updatedUser.AccountEnabled -eq $false) {
-        Write-Host "✅ User $UserPrincipalName successfully disabled." -ForegroundColor Green
-    } else {
-        Write-Host "⚠️ Attempted to disable $UserPrincipalName, but status did not change." -ForegroundColor Yellow
-    }
-}
-catch {
-    Write-Host "❌ Failed to disable user: $_" -ForegroundColor Red
-}
-```
-
-> 🖼️ Screenshot below shows successful execution of the account disable script:
-
-![Successful script execution](./powershell/disable-account-script-success.png)
+</details>
 
 ---
 
-## Resolution
+## 🗂️ Summary
 
-The account for **Oliver Smith** was successfully disabled using both GUI and PowerShell automation. Sign-ins are now blocked, and the user no longer has access to organizational resources.
+Oliver Smith's account was successfully disabled in Microsoft Entra ID using both GUI and PowerShell methods. This action prevents sign-in to Microsoft 365 and all corporate resources, effectively offboarding him from the environment.
 
-🗂️ Ticket Closed.
+This task was handled as a part of routine offboarding operations in line with DomainJoinedGlobal's identity lifecycle policy.
+
+---
+
+## 📂 Project Files
+- [`disable-user-account.ps1`](../../scripts/disable-user-account.ps1)
