@@ -1,79 +1,89 @@
-# 🧾 SD-1026 - Update User Profile Attributes Based on Departmental Standards
+# 🎫 Ticket ID: SD-1026 - Update User Properties (Single Edit)
 
-## 📚 Table of Contents
-- [🎯 Goal](#goal)
-- [🧪 Scenario](#scenario)
-- [🧰 Tools Used](#tools-used)
-- [🖱️ GUI Walkthrough](#gui-walkthrough)
-- [⚙️ Automation (PowerShell)](#automation-powershell)
-- [✅ Validation](#validation)
+## 🏢 Scenario
+
+It’s mid-day at **DomainJoinedGlobal**, and the IT department has submitted a ticket to the internal helpdesk.  
+**John Sanders**, a cloud engineer, has recently been promoted. His title and department must be updated in Microsoft Entra ID to reflect the new role.
+
+As the assigned support engineer, your responsibility is to ensure that John’s title is updated to **Senior Cloud Engineer**, and his department remains correctly listed as **IT**. This update must be completed and verified through both GUI and PowerShell, following standard compliance and documentation practices.
+
+<details>
+  <summary>📋 View Employee Details</summary>
+
+  - **Full Name:** John Sanders  
+  - **Old Title:** Cloud Engineer  
+  - **New Title:** Senior Cloud Engineer  
+  - **Department:** IT  
+  - **Email:** john.sanders@domainjoined.xyz  
+  - **Username:** john.sanders  
+
+</details>
 
 ---
 
-## Goal
+## 🎯 Objective
 
-Standardize user profiles in Microsoft Entra ID by updating key attributes such as:
-- Job Title
-- Department
-- Office Location
-- Manager (optional)
-
-These attributes are important for organizational clarity, automation, and downstream apps like Teams and Outlook.
+- Update the job title and department of John Sanders  
+- Confirm changes were applied successfully  
+- Document both GUI and PowerShell methods for audit purposes
 
 ---
 
-## Scenario
+## 🛠️ Technologies Used
 
-HR notifies IT that employee **John Sanders** has been promoted to **Senior Cloud Engineer** in **IT**, located in the **Swansea Office**. Your task is to update the user profile accordingly.
+- **Microsoft Entra ID (Azure Active Directory)**  
+- **Azure Portal (GUI)**  
+- **PowerShell**  
+- **Microsoft Graph PowerShell SDK**  
 
-> This ticket focuses **on profile updates** (job title, department, location).  
+---
 
-## Tools Used
+## 🖥️ Method 1: GUI
+### Guided Steps:
 
-| Tool/Service         | Purpose                                     |
-|----------------------|---------------------------------------------|
-| Microsoft Entra ID   | GUI user profile editing                    |
-| Microsoft Graph SDK  | Automating updates via `Update-MgUser`     |
-| PowerShell           | Running automation script locally           |
-| VS Code              | Writing and organizing project scripts/docs |
+<details>
+  <summary>📸 Step 1: Locate and Edit User Properties</summary>
 
+  - Navigate to **Microsoft Entra ID > Users**
+  - Search for **John Sanders**
+  - Click on the user to open the profile
+  - Click **Edit Properties**
+  - Scroll to the **Job info** section
+  - Update **Job Title** to `Senior Cloud Engineer`
+  - Confirm **Department** is `IT`
+  - Click **Save**
 
-## GUI Walkthrough
+  ![Edit Properties](./gui/edit-user-properties.png)
+</details>
 
-1. Go to **Microsoft Entra ID** > **Users**.
-2. Search for `John Sanders` and open their profile.
-3. Click **Edit properties**.
-4. Update the following fields:
-   - **Job title**: `Senior Cloud Engineer`
-   - **Department**: `IT`
-   - **Office location**: `Swansea Office`
-5. Click **Save**.
-6. Automatically return to the user's profile where you can verify the changes
+---
 
-📷 *Edit Properties GUI*
+## 💻 Method 2: PowerShell / Script Automation
 
-![Edit user attributes - GUI](./gui/edit-user-properties.png)
-
-## Automation (Powershell)
-
-To perform the same operation using PowerShell and Microsoft Graph:
-
+### Script Command:
 ```powershell
-.\scripts\update-user-attributes.ps1
+.\scripts\update-user-properties.ps1
 ```
-This script works as follows:
-- Connects to Microsoft Graph
-- Prompts for User Principal Name
-- Validates UPN
-- Confirms modifications to be executed
-- Verifies/validates the update
+> **Note:** This example demonstrates a **single-user update using UPN input** instead of a CSV to simulate a quick change request and highlight multiple approaches to achieving the same result.
 
+### Script Execution:
 
-📷 *Script Execution Powershell*
-![PowerShell attribute update](./powershell/powershell-execution-validation.png)
+<details>
+  <summary>📸 PowerShell Output</summary>
+
+  ![Update Properties](./powershell/update-user-properties.png)
+</details>
+
 ---
 
+## 🗂️ Summary
 
+John Sanders’ account details have been successfully updated in Microsoft Entra ID. His **Job Title** now reflects `Senior Cloud Engineer`, and the **Department** is confirmed to be `IT`. This ensures internal records and access policies are properly aligned with his new responsibilities.
 
+This change was documented using both the GUI and PowerShell approaches.
 
+---
 
+## 📂 Project Files
+
+- [`Update-User-Properties.ps1`](../../scripts/update-user-properties.ps1)
