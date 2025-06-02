@@ -53,6 +53,8 @@ All tasks are handled by the internal IT support team and executed using a mix o
 |-----------|-------|-----|------------|
 | [SD-1030](./tickets/SD-1030/SD-1030-create-groups-assign-members.md) | Create Security Groups + Assign Members | ✅ | ✅ |
 | [SD-1031](./tickets/SD-1031/SD-1031-group-based-license-assignment.md) | Assign Microsoft 365 Licenses via Group-Based Licensing | ✅ | ✅ |
+| [SD-1032](./tickets/SD-1032/SD-1032-assign-scoped-role.md) | Role Assignment via Azure AD (e.g. Password Administrator) | ✅ | ✅ |
+
 
 ## **🚧 TICKETS BELOW ARE UNDER DEVELOPMENT 🚧**
 
@@ -60,7 +62,6 @@ All tasks are handled by the internal IT support team and executed using a mix o
 
 | Ticket ID | Title | GUI | Automation |
 |-----------|-------|-----|------------|
-| SD-1032 | Role Assignment via Azure AD (e.g. Password Administrator) | ✅ | ✅ |
 | SD-1033 | Remove User from Group | ✅ | ✅ |
 
 ### 📁 Email and Mailbox Management (Exchange Online)
@@ -107,7 +108,5 @@ All tasks are handled by the internal IT support team and executed using a mix o
 | SD-1051 | Create Logic App: Auto-Onboard from Email Trigger | ❌ | ✅ |
 | SD-1052 | Schedule User Status Reports via PowerShell (CSV output) | ❌ | ✅ |
 | SD-1053 | Automate License Assignment from CSV | ❌ | ✅ |
-
-
 
 ---
