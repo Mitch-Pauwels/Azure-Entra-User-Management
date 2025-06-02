@@ -1,0 +1,3 @@
+DisplayName,Description,MailNickname,GroupType,MembershipType,AssignEntraRole
+Finance Team,Finance staff group,,Security,Assigned,false
+IT Team,All IT engineers,,Security,Assigned,true
