@@ -54,15 +54,9 @@ All tasks are handled by the internal IT support team and executed using a mix o
 | [SD-1030](./tickets/SD-1030/SD-1030-create-groups-assign-members.md) | Create Security Groups + Assign Members | ✅ | ✅ |
 | [SD-1031](./tickets/SD-1031/SD-1031-group-based-license-assignment.md) | Assign Microsoft 365 Licenses via Group-Based Licensing | ✅ | ✅ |
 | [SD-1032](./tickets/SD-1032/SD-1032-assign-scoped-role.md) | Role Assignment via Azure AD (e.g. Password Administrator) | ✅ | ✅ |
-
+| [SD-1033](./tickets/SD-1033/SD-1033-remove-user-from-group.md) | Remove User from Group | ✅ | ✅ |
 
 ## **🚧 TICKETS BELOW ARE UNDER DEVELOPMENT 🚧**
-
-### 📁 Group & Role Management
-
-| Ticket ID | Title | GUI | Automation |
-|-----------|-------|-----|------------|
-| SD-1033 | Remove User from Group | ✅ | ✅ |
 
 ### 📁 Email and Mailbox Management (Exchange Online)
 
