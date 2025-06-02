@@ -47,13 +47,18 @@ All tasks are handled by the internal IT support team and executed using a mix o
 | [SD-1028](./tickets/SD-1028/SD-1028-bulk-update-user-properties.md) | Bulk Update User Properties (via CSV) | ❌ | ✅ |
 | [SD-1029](./tickets/SD-1029\SD-1029-bulk-disable-users.md) | Bulk Offboarding (Disable Multiple Users) | ❌ | ✅ |
 
+### 📁 Group & Role Management
+
+| Ticket ID | Title | GUI | Automation |
+|-----------|-------|-----|------------|
+| [SD-1030](./tickets/SD-1030/SD-1030-create-groups-assign-members.md) | Create Security Groups + Assign Members | ✅ | ✅ |
+
 ## **🚧 TICKETS BELOW ARE UNDER DEVELOPMENT 🚧**
 
 ### 📁 Group & Role Management
 
 | Ticket ID | Title | GUI | Automation |
 |-----------|-------|-----|------------|
-| SD-1030 | Create Security Groups + Assign Members | ✅ | ✅ |
 | SD-1031 | Assign Microsoft 365 Licenses via Group-Based Licensing | ✅ | ✅ |
 | SD-1032 | Role Assignment via Azure AD (e.g. Password Administrator) | ✅ | ✅ |
 | SD-1033 | Remove User from Group | ✅ | ✅ |
